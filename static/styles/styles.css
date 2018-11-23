@@ -1,0 +1,33 @@
+.container {
+    padding-top: .5em;
+}
+
+.message {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+#login__subtitle, #copyright {
+    font-size: .75em;
+    font-style: italic;
+}
+
+#registration__form {
+    border-top: 1px black dashed;
+    border-bottom: 1px black dashed;
+    margin: 1em auto;
+}
+
+#registration__form input {
+    display: block;
+    width: 35em;
+    margin: 1em;
+}

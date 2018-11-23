@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  Registration
+{% endblock %}
+
+{% block subheading %}
+  Create an account to begin looking up all your favorite books!
+{% endblock %}
+
+{% block body %}
+    <div class="container" id="registration__form">
+    
+    {% if message %}
+        {% if messageType == "error" %}
+            <p class="message error">{{ message }}</p>
+        {% else %}
+            <p class="message success">{{ message }}</p>
+        {% endif %}
+    {% endif %}
+    
+        <form action="{{ url_for('register') }}" method="post">
+            
+            <input type="text" required name="firstName" placeholder="First name" id="firstName"/>
+            <input type="text" required name="lastName" placeholder="Last name" id="lastName"/>
+            <input type="email" required name="email" placeholder="Email" id="email"/>
+            <input type="email" required name="emailConfirmation" placeholder="Confirm email" id="emailConfirmation"/>
+            <input type="text" required minlength=6 name="username" placeholder="Username (Minimum 6 characters)" id="username"/>
+            <input type="password" required minlength=6 name="password" placeholder="Password (Minimum 6 characters)" id="password"/>
+            <input type="password" required name="passwordConfirmation" placeholder="Confirm password" id="passwordConfirmation"/>
+            <input type="submit" value="Register account!"/>
+            
+        </form>
+    
+    </div>
+    
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="/static/js/register.js"></script>
+{% endblock %}

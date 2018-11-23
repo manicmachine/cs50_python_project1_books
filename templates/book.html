@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block heading %}
+    {{ book.title }}
+{% endblock %}
+
+{% block subheading %}
+    By {{ book.author }}
+{% endblock %}
+
+{% block body %}
+    <ul>
+        <li>Year Published: {{ book.year }}</li>
+        <li>* Average rating: {{ book.avgReview }}</li>
+        <li>* Number of ratings: {{ book.numReviews }}</li>
+    </ul>
+    
+    <p>* Powered by <a href="https://www.goodreads.com/">Goodreads</a></p>
+    
+    <br>
+    <h3>Reviews</h3>
+    
+    {% if userReview %}
+        <h5>Your Review</h5>
+        <div class="review">
+            <span class="rating">Rating: {{ userReview.rating }}/5</span>
+            <span class="date">Date Reviewed: {{ userReview.date }}</span>
+            <p class="reviewContent">Review: {{ userReview.review }}</p>
+        </div>
+    {% endif %}
+    
+    {% if reviews %}
+        <h5>Reviews</h5>
+        {% for review in reviews %}
+            <div class="review">
+                <span class="username">Username: {{ review.user.username }}</span>
+                <span class="rating">Rating: {{ review.rating }}/5</span>
+                <span class="date">Date Reviewed: {{ review.date }}</span>
+                <p class="reviewContent">Review: {{ review.review }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p> There doesn't appear to be any reviews for this book yet!</p>
+    {% endif %}
+{% endblock %}
